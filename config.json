@@ -1,0 +1,17 @@
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [
+    {
+      "tag": "vless-in", "port": 10000, "listen": "0.0.0.0", "protocol": "vless",
+      "settings": { "clients": [{ "id": "8ab677b8-b2be-49da-aa30-082a204116b0", "level": 0 }], "decryption": "none" },
+      "streamSettings": { "network": "xhttp", "security": "none", "xhttpSettings": { "mode": "packet-up", "path": "/" } }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy", "protocol": "vless",
+      "settings": { "vnext": [{ "address": "68.168.218.208", "port": 2053, "users": [{ "id": "8ab677b8-b2be-49da-aa30-082a204116b0", "encryption": "none" }] }] },
+      "streamSettings": { "network": "xhttp", "security": "none", "xhttpSettings": { "path": "/raw", "mode": "auto" } }
+    }
+  ]
+}
